@@ -24,4 +24,24 @@ func main() {
 		fmt.Println(j)
 		j++
 	}
+
+	// range in go
+	for i := range 11 {
+		fmt.Println(i)
+	}
+
+	// type switch
+	whoAmI := func(i interface{}) {
+		switch i.(type) {
+		case int:
+			fmt.Println("int")
+		case string:
+			fmt.Println("string")
+		default:
+			fmt.Println("unknown")
+		}
+	}
+	whoAmI(1)
+	whoAmI("hello")
+	whoAmI(true)
 }
