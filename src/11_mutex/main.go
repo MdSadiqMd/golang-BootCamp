@@ -7,10 +7,15 @@ import (
 
 type post struct {
 	views int
+	mu    sync.Mutex // This mutex will be used to prevent race conditions
 }
 
 func (p *post) incrementViews(wg *sync.WaitGroup) {
-	defer wg.Done()
+	defer func() {
+		wg.Done()
+		p.mu.Unlock()
+	}()
+	p.mu.Lock() // It's better to lock only the critical section
 	p.views += 1
 }
 
