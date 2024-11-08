@@ -5,11 +5,17 @@ import (
 	"time"
 )
 
+type customer struct {
+	name  string
+	phone string
+}
+
 type Order struct { // struct is a collection of fields --> Syntax --> name struct
 	id        string
 	amount    float32
 	status    string
 	createdAt time.Time
+	customer  customer // or can just write customer
 }
 
 func main() {
@@ -32,9 +38,35 @@ func main() {
 	myOrder.getOrderStatus()
 	fmt.Println(myOrder)
 
+	// Making struct directly this is used in suituation when we only want to use one time
+	language := struct {
+		name   string
+		isGood bool
+	}{"sadiq", true}
+	fmt.Println(language)
+
 	// Constructor
 	newOrder := NewOrder("123", 100, "pending")
 	fmt.Println(newOrder)
+
+	// Struct with struct embedding
+	newOrder2 := Order{
+		id:     "123",
+		amount: 100,
+		status: "pending",
+	}
+	fmt.Println(newOrder2)
+
+	newOrder3 := Order{
+		id:     "123",
+		amount: 100,
+		status: "pending",
+		customer: customer{
+			name:  "sadiq",
+			phone: "123",
+		},
+	}
+	fmt.Println(newOrder3)
 }
 
 // connecting fucntion with struct
