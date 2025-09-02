@@ -6,6 +6,10 @@ import (
 	"time"
 )
 
+// Note: In function ar
+// <-chan T : It means read only channel
+// chan<- T : It means write only channel
+// chan T   : Can both read and write channel
 func doWork(done <-chan bool) {
 	for {
 		select {
