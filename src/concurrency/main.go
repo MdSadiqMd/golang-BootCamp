@@ -1,7 +1,10 @@
 package main
 
-import routines "go-concurrency/1_go_routines"
+import (
+	channels "go-concurrency/2_channels"
+)
 
 func main() {
-	routines.Concurrency()
+	// routines.Concurrency()
+	channels.Channels()
 }
