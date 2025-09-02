@@ -1,12 +1,13 @@
 package main
 
 import (
-	generatorpipelinesyncchannelsfanoutconcurrencypatterns "go-concurrency/4_generator_pipeline_syncChannels_fanout_concurrency_patterns"
+	confinment "go-concurrency/5_confinment_pattern"
 )
 
 func main() {
 	// routines.Concurrency()
 	// channels.Channels()
 	// pipeline.Pipeline()
-	generatorpipelinesyncchannelsfanoutconcurrencypatterns.ConcurrencyPattern()
+	// generatorpipelinesyncchannelsfanoutconcurrencypatterns.ConcurrencyPattern()
+	confinment.Confinment()
 }
